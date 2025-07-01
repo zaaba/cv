@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Zaaba Ahmad - Python Styled Resume</title>
+  <style>
+    body {
+      background-color: #1e1e1e;
+      color: #d4d4d4;
+      font-family: Consolas, monospace;
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .comment {
+      color: #6a9955;
+    }
+    .string {
+      color: #ce9178;
+    }
+    .keyword {
+      color: #569cd6;
+    }
+    .function {
+      color: #dcdcaa;
+    }
+    img.profile {
+      float: right;
+      width: 200px;
+      border-radius: 50%;
+      margin-left: 20px;
+    }
+    pre {
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+  </style>
+</head>
+<body>
+  <img src="Zaaba Tuxedo.png" alt="Profile Image" class="profile" />
+  <pre><span class="comment"># Resume of Ts. Dr. Zaaba Ahmad</span>
+
+
+<span class="keyword">class</span> PersonalInfo:
+    NAME = <span class="string">"Ts. Dr. Zaaba Ahmad"</span>
+    TITLE = <span class="string">"Lecturer, AI Researcher"</span>
+    EMAIL = <span class="string">"zaaba.ahmad@uitm.edu.my"</span>
+    PHONE = <span class="string">"+6017-2988287"</span>
+    LOCATION = <span class="string">"UiTM Perak, Malaysia"</span>
+    MBOT = <span class="string">"PT19010009"</span>
+
+<span class="keyword">class</span> Resume:
+    PERSONAL_PROFILE = <span class="string">"Committed academic with expertise in NLP, image processing, computer vision, and machine learning. Active in AI research, mental health tech, and national strategy roles."</span>
+
+    ACADEMIC_QUALIFICATIONS = [
+        <span class="string">"PhD (Submitted) – UiTM"</span>,
+        <span class="string">"MSc in Computer Science – USM"</span>,
+        <span class="string">"BSc (Hons.) – UTM"</span>,
+        <span class="string">"Diploma in Computer Electronics – PUO"</span>
+    ]
+
+    PROFESSIONAL_EXPERIENCE = {
+        <span class="string">"UiTM"</span>: <span class="string">"Lecturer (2016–present): AI, ML, NLP, student mentoring, lab setup"</span>,
+        <span class="string">"Intel"</span>: <span class="string">"Engineer (2006–2014): CPU validation, R&D, automation"</span>
+    }
+
+    TEACHING_PROFILE = [
+        <span class="string">"CSC649 - Special Topics in Computer Science"</span>,
+        <span class="string">"CSC566 - Image Processing"</span>,
+        <span class="string">"CSC126 - Algorithms & Problem Solving"</span>,
+        <span class="string">"ITS480 - Business Data Analytics"</span>,
+        <span class="string">"ITT400 - Data Communications"</span>,
+        <span class="string">"ITS332 - System Development"</span>,
+        <span class="string">"ITT270 - Digital Electronics"</span>
+    ]
+
+    INNOVATIONS = [
+        <span class="string">"Sign Language Detection with YOLOv3"</span>,
+        <span class="string">"Butterfly Detection via CNN"</span>,
+        <span class="string">"MAYA NLP System (Gold Medal)"</span>,
+        <span class="string">"FFB Detection for MPOB"</span>,
+        <span class="string">"AISA Scam Alert System"</span>
+    ]
+
+    RESEARCH_ENGAGEMENTS = [
+        <span class="string">"PhD Internship – Univ. of Melbourne"</span>,
+        <span class="string">"AI Think Tank – UiTM"</span>,
+        <span class="string">"AI Seminar Coordinator"</span>,
+        <span class="string">"Mental Health Grant – IIUM"</span>,
+        <span class="string">"HRDCorp Trainer – AI/ML"</span>
+    ]
+
+    GRANTS = [
+        <span class="string">"FRGS – Depression/Anxiety Detection via M-DASS"</span>,
+        <span class="string">"SRG25 – ADHD Psychoeducation App"</span>,
+        <span class="string">"KPT Grant – AIMI System"</span>
+    ]
+
+    MEMBERSHIPS = [
+        <span class="string">"Technologist (Ts.) – MBOT"</span>,
+        <span class="string">"IEEE Member"</span>
+    ]
+
+<span class="keyword">class</span> AcademicBackground:
+    PHD = <span class="string">"PhD in Computer Science, UiTM"</span>
+    MSC = <span class="string">"MSc in Computer Science, USM"</span>
+    BSC = <span class="string">"BSc (Hons.) in Computer Science, UTM"</span>
+    DIPLOMA = <span class="string">"Diploma in Computer Electronics, PUO"</span>
+
+<span class="keyword">class</span> Skills:
+    NLP = [<span class="string">"BERT"</span>, <span class="string">"Word2Vec"</span>, <span class="string">"Transformers"</span>]
+    VISION = [<span class="string">"YOLOv8"</span>, <span class="string">"CNN"</span>, <span class="string">"Attention"</span>]
+    PROGRAMMING = [<span class="string">"Python"</span>, <span class="string">"MATLAB"</span>, <span class="string">"TensorFlow"</span>, <span class="string">"PyTorch"</span>]
+    TOOLS = [<span class="string">"PyCharm"</span>, <span class="string">"Jupyter"</span>, <span class="string">"LaTeX"</span>, <span class="string">"Figma"</span>]
+
+<span class="keyword">class</span> Experience:
+    UiTM = <span class="string">"2016 - Present, Lecturer in AI"</span>
+    Intel = <span class="string">"2006 - 2014, Product Design Engineer"</span>
+
+<span class="keyword">class</span> Research:
+    CURRENT = [
+        <span class="string">"AIMI - AI Mental Health Counsellor"</span>,
+        <span class="string">"MAYA - Multimodal Affective Conversational AI  "</span>,
+        <span class="string">"ADHD Psychoeducation App (IIUM)"</span>
+    ]
+    GRANTS = [
+        <span class="string">"FRGS - Malay DASS Classification in Social Media"</span>,
+        <span class="string">"SRG25 - AI Psychoeducation"</span>
+    ]
+
+<span class="keyword">class</span> Awards:
+    GOLD_MEDALS = [
+        <span class="string">"MAYA V2 - Gold @ INDES 2025"</span>,
+      <span class="string">"MAYA V1 - Gold @ INoDEX 2023"</span>,
+        <span class="string">"ASLT - Gold @ INDES 2019"</span>,
+        <span class="string">"NBIS - Gold @ INDES 2019"</span>
+    ]
+    COPYRIGHTS = [
+        <span class="string">"MAYA V1 - CRLY2024W00509"</span>,
+        <span class="string">"Malay DASS Dataset - CRLY2024W00511"</span>
+    ]
+
+<span class="keyword">class</span> Memberships:
+    MBOT = <span class="string">"Technologist (Ts.)"</span>
+    IEEE = <span class="string">"IEEE Member"</span>
+
+<span class="keyword">def</span> greet():
+    <span class="keyword">print</span>(<span class="string">">>> Hello, I'm Zaaba. Let's collaborate on AI for good."</span>)
+  </pre>
+</body>
+</html>
