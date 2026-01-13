@@ -2,240 +2,915 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Ts. Dr. Zaaba Ahmad - Python Styled Resume</title>
+  <title>Ts. Dr. Zaaba Ahmad | AI Researcher & Lecturer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Personal website of Ts. Dr. Zaaba Ahmad, AI researcher and lecturer specialising in NLP, computer vision, and mental health technologies." />
+
   <style>
+    :root {
+      --bg: #020617;
+      --bg-alt: #020617;
+      --card-bg: #020617;
+      --card-border: #1f2937;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --heading: #f9fafb;
+      --badge: #111827;
+      --badge-border: #1f2937;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      background: radial-gradient(circle at top, #1f2937 0, #020617 55%);
-      color: #e2e8f0;
-      font-family: Consolas, "Fira Code", Menlo, monospace;
-      padding: 40px;
-      max-width: 1000px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+                   "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, #1f2937 0, #020617 55%) fixed,
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1120px;
       margin: 0 auto;
+      padding: 24px 20px 60px;
     }
 
-    .comment {
-      color: #94a3b8;
-    }
-    .string {
-      color: #f9a8d4;
-    }
-    .keyword {
-      color: #38bdf8;
-    }
-    .function {
-      color: #fcd34d;
+    /* NAVBAR */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 10px 0;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom,
+        rgba(2, 6, 23, 0.92),
+        rgba(2, 6, 23, 0.75),
+        transparent
+      );
     }
 
-    img.profile {
-      float: right;
-      width: 200px;
-      border-radius: 50%;
-      margin-left: 24px;
-      border: 3px solid #38bdf8;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.8);
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #38bdf8 0, #0f172a 45%, #020617 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      color: #0b1120;
+      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.35);
+    }
+
+    .nav-title {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-title-main {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--heading);
+    }
+
+    .nav-title-sub {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 3px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(to right, #38bdf8, #22c55e);
+      transition: width 0.18s ease-out;
+    }
+
+    .nav-links a:hover {
+      color: #e5e7eb;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(26px, 3.1vw, 32px);
+      line-height: 1.2;
+      margin-bottom: 10px;
+      color: var(--heading);
+    }
+
+    .hero-text h1 span {
+      background: linear-gradient(to right, #38bdf8, #22c55e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 18px;
+      max-width: 520px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.8);
+      color: #e5e7eb;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tag-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: 999px;
+      font-size: 13px;
+      padding: 9px 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background 0.16s ease-out,
+                  transform 0.12s ease-out,
+                  box-shadow 0.16s ease-out,
+                  border-color 0.16s ease-out;
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at top left, #38bdf8 0, #0ea5e9 35%, #0369a1 100%);
+      color: #0b1120;
+      font-weight: 600;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.7);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.7);
+      color: var(--text);
+      border-color: rgba(148, 163, 184, 0.6);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: var(--accent);
+    }
+
+    .btn-icon {
+      font-size: 14px;
+    }
+
+    .hero-meta {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-meta strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .hero-photo-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-photo {
+      position: relative;
+      width: 240px;
+      border-radius: 28px;
+      background: radial-gradient(circle at 30% 10%, rgba(56, 189, 248, 0.35) 0, #020617 45%);
+      padding: 10px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .hero-photo-inner {
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(15, 23, 42, 0.8);
+      background: #020617;
+    }
+
+    .hero-photo-inner img {
+      width: 100%;
+      display: block;
       object-fit: cover;
     }
 
-    .code-window {
-      background-color: #0f172a;
-      border-radius: 10px;
-      border: 1px solid #1e293b;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
-      padding-bottom: 10px;
-      overflow: hidden;
+    .hero-photo-label {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 11px;
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
+      color: var(--muted);
     }
 
-    .code-header {
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #38bdf8;
+    }
+
+    /* SECTIONS */
+    section {
+      margin-bottom: 36px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--heading);
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 10px 16px;
-      background: linear-gradient(to right, #020617, #0b1220);
-      border-bottom: 1px solid #1f2937;
-      font-size: 13px;
-      color: #9ca3af;
+      gap: 10px;
     }
 
-    .code-dots {
-      display: flex;
-      gap: 6px;
-      margin-right: 10px;
+    .section-title span {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--muted);
     }
 
-    .dot {
-      width: 10px;
-      height: 10px;
+    .section-title::before {
+      content: "";
+      width: 4px;
+      height: 18px;
       border-radius: 999px;
+      background: linear-gradient(to bottom, #38bdf8, #22c55e);
     }
-    .dot.red { background: #f97373; }
-    .dot.yellow { background: #facc15; }
-    .dot.green { background: #22c55e; }
 
-    pre {
-      margin: 0;
-      padding: 18px 20px 22px;
-      white-space: pre-wrap;
-      word-break: break-word;
+    .section-grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: linear-gradient(to bottom right, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.94));
+      border-radius: 14px;
+      border: 1px solid var(--card-border);
+      padding: 14px 16px 14px;
+      box-shadow: 0 14px 38px rgba(0, 0, 0, 0.9);
+    }
+
+    .card p {
       font-size: 14px;
-      line-height: 1.5;
+      line-height: 1.6;
+      color: var(--muted);
     }
 
-    @media (max-width: 768px) {
-      body {
-        padding: 20px;
+    .list-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .badge {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--badge-border);
+      background: var(--badge);
+      color: #e5e7eb;
+      white-space: nowrap;
+    }
+
+    .badge-soft {
+      background: var(--accent-soft);
+      border-color: rgba(56, 189, 248, 0.55);
+      color: #e0f2fe;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.8fr);
+      gap: 18px;
+      font-size: 14px;
+    }
+
+    .two-col h3 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .two-col ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .two-col li {
+      margin-bottom: 6px;
+      color: var(--muted);
+    }
+
+    .two-col li strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .pill-row span {
+      font-size: 12px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--muted);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .project-card {
+      background: linear-gradient(to bottom, #020617, #020617);
+      border-radius: 12px;
+      padding: 12px 13px 11px;
+      border: 1px solid rgba(31, 41, 55, 0.95);
+    }
+
+    .project-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--heading);
+      margin-bottom: 4px;
+    }
+
+    .project-meta {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .project-desc {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 10px;
+    }
+
+    .project-tags span {
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(30, 64, 175, 0.85);
+      color: #cbd5f5;
+    }
+
+    .columns-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      font-size: 13px;
+    }
+
+    .columns-2 h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--heading);
+      margin-bottom: 4px;
+    }
+
+    .columns-2 ul {
+      list-style: none;
+    }
+
+    .columns-2 li {
+      margin-bottom: 6px;
+      color: var(--muted);
+    }
+
+    .columns-2 li strong {
+      color: var(--text);
+    }
+
+    /* CONTACT / FOOTER */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.8fr);
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    .contact-row {
+      margin-bottom: 6px;
+    }
+
+    .contact-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .contact-value {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+      font-size: 13px;
+    }
+
+    .link-chip {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .link-chip span {
+      font-size: 13px;
+    }
+
+    .link-chip:hover {
+      border-color: var(--accent);
+      color: #e5e7eb;
+    }
+
+    footer {
+      margin-top: 26px;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    footer span {
+      color: #38bdf8;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
       }
-      img.profile {
-        float: none;
-        display: block;
-        margin: 0 auto 20px;
+      .hero-photo-wrap {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+      }
+      .section-grid-2,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .projects-grid,
+      .columns-2 {
+        grid-template-columns: minmax(0, 1fr);
       }
     }
   </style>
 </head>
 <body>
-  <img src="Zaaba Tuxedo.png" alt="Profile Image" class="profile" />
+  <div class="page">
 
-  <div class="code-window">
-    <div class="code-header">
-      <div class="code-dots">
-        <div class="dot red"></div>
-        <div class="dot yellow"></div>
-        <div class="dot green"></div>
+    <!-- NAVBAR -->
+    <header class="nav">
+      <div class="nav-left">
+        <div class="nav-logo">Z</div>
+        <div class="nav-title">
+          <div class="nav-title-main">Ts. Dr. Zaaba Ahmad</div>
+          <div class="nav-title-sub">AI &amp; Mental Health · Smart City · Digital Twins</div>
+        </div>
       </div>
-      <span>zaaba_cv.py</span>
-    </div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research &amp; Projects</a>
+        <a href="#grants">Grants &amp; Awards</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-    <pre><span class="comment"># Resume of Ts. Dr. Zaaba Ahmad</span>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-text">
+        <h1>
+          AI research for <span>mental health, smart cities,</span><br />
+          and practical impact.
+        </h1>
+        <p class="hero-subtitle">
+          Lecturer at UiTM Cawangan Perak focusing on NLP, computer vision,
+          mental-health technologies, and AI applications for public sector and smart city ecosystems.
+        </p>
 
+        <div class="hero-tags">
+          <div class="tag"><span class="tag-dot"></span> AI Research &amp; Innovation</div>
+          <div class="tag">Mental Health Tech</div>
+          <div class="tag">Smart City &amp; Digital Twins</div>
+        </div>
 
-<span class="keyword">class</span> PersonalInfo:
-    NAME = <span class="string">"Ts. Dr. Zaaba Ahmad"</span>
-    TITLE = <span class="string">"Lecturer &amp; AI Researcher"</span>
-    EMAIL = <span class="string">"zaaba.ahmad@uitm.edu.my"</span>
-    PHONE = <span class="string">"+6017-2988287"</span>
-    LOCATION = <span class="string">"UiTM Cawangan Perak, Malaysia"</span>
-    MBOT = <span class="string">"PT19010009"</span>
+        <div class="hero-actions">
+          <!-- Change the href to match your actual CV file name on GitHub -->
+          <a href="Zaaba-Ahmad-CV.pdf" class="btn-primary" download>
+            <span class="btn-icon">⬇</span>
+            <span>Download CV (PDF)</span>
+          </a>
 
-<span class="keyword">class</span> Resume:
-    PERSONAL_PROFILE = <span class="string">"Academic and AI practitioner specialising in NLP, computer vision, and mental health technologies, with active roles in smart city, digital twin and national AI initiatives."</span>
+          <!-- Optional external links -->
+          <a href="#" class="btn-ghost">
+            <span class="btn-icon">🔗</span>
+            <span>Google Scholar</span>
+          </a>
+        </div>
 
-    ACADEMIC_QUALIFICATIONS = [
-        <span class="string">"PhD in Computer Science (Artificial Intelligence) – UiTM (2025)"</span>,
-        <span class="string">"MSc in Computer Science (Artificial Intelligence) – USM (2015)"</span>,
-        <span class="string">"BSc (Hons.) in Computer Science – UTM (2011)"</span>,
-        <span class="string">"Diploma in Computer Electronics – PUO"</span>
-    ]
+        <div class="hero-meta">
+          <div><strong>Current roles:</strong> Lecturer (AI), AI Think Tank (UiTM), Consultant for Putrajaya 2050 Smart / Quantum City initiatives.</div>
+        </div>
+      </div>
 
-    PROFESSIONAL_EXPERIENCE = {
-        <span class="string">"UiTM"</span>: <span class="string">"Lecturer (2016–present): Teaching AI/ML/NLP, supervising students, leading AI innovation and consultancy."</span>,
-        <span class="string">"Intel"</span>: <span class="string">"Engineer (2006–2014): CPU validation, R&amp;D, test automation."</span>
-    }
+      <div class="hero-photo-wrap">
+        <div class="hero-photo">
+          <div class="hero-photo-inner">
+            <!-- Replace with your actual image path / filename -->
+            <img src="zaaba-profile.jpg" alt="Ts. Dr. Zaaba Ahmad" />
+          </div>
+          <div class="hero-photo-label">
+            <div class="pill-dot"></div>
+            <span>Based in UiTM Cawangan Perak, Malaysia</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    TEACHING_PROFILE = [
-        <span class="string">"CSC649 - Special Topics in Computer Science"</span>,
-        <span class="string">"CSC566 - Image Processing"</span>,
-        <span class="string">"CSC126 - Algorithms &amp; Problem Solving"</span>,
-        <span class="string">"ITS480 - Business Data Analytics"</span>,
-        <span class="string">"ITT400 - Data Communications"</span>,
-        <span class="string">"ITS332 - System Development"</span>,
-        <span class="string">"ITT270 - Digital Electronics"</span>
-    ]
+    <!-- ABOUT -->
+    <section id="about">
+      <h2 class="section-title">About <span>Profile &amp; Focus Areas</span></h2>
+      <div class="section-grid-2">
+        <div class="card">
+          <p>
+            Ts. Dr. Zaaba Ahmad is a lecturer and AI researcher specialising in
+            natural language processing, image processing and computer vision,
+            with a strong emphasis on mental health support systems and applied AI
+            for public-sector and smart city contexts.
+          </p>
+          <p style="margin-top: 8px;">
+            His work spans<span> AI-powered counselling systems (AIMI, MAYA)</span>,
+            AI reception and service automation, and AI-driven digital twin
+            approaches for infrastructure monitoring and city planning. He is
+            actively involved as consultant and think-tank member for national
+            and municipal initiatives, including Putrajaya 2050.
+          </p>
 
-    INNOVATIONS = [
-        <span class="string">"MAYA V2 – Multimodal Affective Conversational AI for Mental Health Support"</span>,
-        <span class="string">"AIMI – Multimodal Emotion-Aware AI System for Mental Health Support in Education"</span>,
-        <span class="string">"PAPA – RAG-based AI Assistant for Inclusive Academic Planning"</span>,
-        <span class="string">"VELOCI – Autonomous Road Monitoring and Damage Detection with YOLO and GPS"</span>,
-        <span class="string">"ASLT – Automatic Sign Language Translation System"</span>,
-        <span class="string">"NBIS – Neural Butterfly Identification System"</span>
-    ]
+          <div class="list-inline">
+            <div class="badge-soft">PhD in Computer Science (AI), UiTM</div>
+            <div class="badge">Technologist (Ts.), MBOT</div>
+            <div class="badge">IEEE Member</div>
+            <div class="badge">HRDCorp Trainer (AI/ML)</div>
+          </div>
+        </div>
 
-    RESEARCH_ENGAGEMENTS = [
-        <span class="string">"AI Think Tank &amp; Advisor – Putrajaya 2050 Development Plan (Quantum/Smart City)"</span>,
-        <span class="string">"Consultant &amp; Trainer – AI, analytics and digital innovation for public sector and industry"</span>,
-        <span class="string">"Mental Health Grants – AIMI and ADHD Psychoeducation Mobile App (SASMEC@IIUM)"</span>,
-        <span class="string">"PI/Co-PI – AI Receptionist (Ai-Receptionist) and U-ReLAx Hub &amp; AIMI-Humanoid projects"</span>,
-        <span class="string">"HRDCorp Trainer – AI/ML and data analytics"</span>
-    ]
+        <div class="card">
+          <div class="two-col">
+            <div>
+              <h3>Academic</h3>
+              <ul>
+                <li><strong>PhD</strong> – Computer Science (AI), UiTM</li>
+                <li><strong>MSc</strong> – Computer Science (AI), USM</li>
+                <li><strong>BSc (Hons.)</strong> – Computer Science, UTM</li>
+                <li><strong>Diploma</strong> – Computer Electronics, PUO</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Domains</h3>
+              <ul>
+                <li>Multimodal conversational AI for mental health</li>
+                <li>Vision-based monitoring &amp; object detection</li>
+                <li>Agentic AI for public sector and education</li>
+                <li>Smart city / digital twin experimentation</li>
+              </ul>
+            </div>
+          </div>
 
-    GRANTS = [
-        <span class="string">"SASMEC@IIUM SRG – AI-informed Psychoeducation Mobile App for Parents of Children with ADHD (2025, Active)"</span>,
-        <span class="string">"UiTM Perak Internal Grant – AI-Receptionist with Avatar for Main Administration Building (2026, Approved)"</span>,
-        <span class="string">"UiTM TNCPI Special Project – U-ReLAx Hub &amp; AIMI-Humanoid Benchmarking at World Robot Conference, Beijing (2026, Approved)"</span>,
-        <span class="string">"FRGS – Malay DASS Detection and Classification in Social Media (Completed)"</span>
-    ]
+          <div class="pill-row">
+            <span>NLP: BERT, Transformers, Malay social media</span>
+            <span>Vision: YOLOv8/YOLOv11, CNN</span>
+            <span>Stacks: Python, TensorFlow, PyTorch, MATLAB</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    MEMBERSHIPS = [
-        <span class="string">"Technologist (Ts.) – MBOT"</span>,
-        <span class="string">"IEEE Member"</span>,
-        <span class="string">"HRDCorp Registered Trainer (AI/ML)"</span>
-    ]
+    <!-- RESEARCH & PROJECTS -->
+    <section id="research">
+      <h2 class="section-title">Research &amp; Key Projects <span>Selected ongoing &amp; recent work</span></h2>
 
-<span class="keyword">class</span> AcademicBackground:
-    PHD = <span class="string">"PhD in Computer Science (Artificial Intelligence), UiTM"</span>
-    MSC = <span class="string">"MSc in Computer Science (Artificial Intelligence), USM"</span>
-    BSC = <span class="string">"BSc (Hons.) in Computer Science, UTM"</span>
-    DIPLOMA = <span class="string">"Diploma in Computer Electronics, PUO"</span>
+      <div class="card" style="margin-bottom: 14px;">
+        <p>
+          Current research centres on three intersecting lines:
+          (i) AI for mental health support in educational settings;
+          (ii) AI-driven service automation (AI reception, RAG-based assistants);
+          and (iii) AI for smart infrastructure and city management through
+          computer vision and digital twin concepts.
+        </p>
+      </div>
 
-<span class="keyword">class</span> Skills:
-    NLP = [<span class="string">"BERT"</span>, <span class="string">"Word2Vec"</span>, <span class="string">"Transformers"</span>]
-    VISION = [<span class="string">"YOLOv8/YOLOv11"</span>, <span class="string">"CNN"</span>, <span class="string">"Attention Mechanisms"</span>]
-    PROGRAMMING = [<span class="string">"Python"</span>, <span class="string">"MATLAB"</span>, <span class="string">"TensorFlow"</span>, <span class="string">"PyTorch"</span>]
-    TOOLS = [<span class="string">"PyCharm"</span>, <span class="string">"Jupyter"</span>, <span class="string">"LaTeX"</span>, <span class="string">"Figma"</span>, <span class="string">"Canva"</span>]
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-title">AIMI – AI Mental Health Counsellor</div>
+          <div class="project-meta">Educational institutions · Multimodal · Empathy-focused</div>
+          <div class="project-desc">
+            AI system designed to support students’ mental health journeys
+            through empathetic conversational flows, sentiment analysis and
+            structured referrals, aligned with professional counselling practice.
+          </div>
+          <div class="project-tags">
+            <span>NLP</span><span>Sentiment &amp; Emotion</span><span>Education</span>
+          </div>
+        </div>
 
-<span class="keyword">class</span> Experience:
-    UiTM = <span class="string">"2016 - Present, Lecturer in AI &amp; Computer Science"</span>
-    Intel = <span class="string">"2006 - 2014, Product Design Engineer (CPU Validation &amp; Automation)"</span>
+        <div class="project-card">
+          <div class="project-title">MAYA – Multimodal Affective Conversational AI</div>
+          <div class="project-meta">Gold Medal @ INDES &amp; IIDEX</div>
+          <div class="project-desc">
+            Affective chatbot integrating text, facial cues and voice to deliver
+            more context-aware and emotionally sensitive interaction for mental
+            health support and self-reflection.
+          </div>
+          <div class="project-tags">
+            <span>Multimodal</span><span>Computer Vision</span><span>Mental Health</span>
+          </div>
+        </div>
 
-<span class="keyword">class</span> Research:
-    CURRENT = [
-        <span class="string">"AIMI – AI Mental Health Counsellor for Educational Institutions"</span>,
-        <span class="string">"MAYA – Multimodal Affective Conversational AI for Mental Health"</span>,
-        <span class="string">"ADHD Psychoeducation Mobile App (SASMEC@IIUM)"</span>,
-        <span class="string">"AI-Receptionist – Avatar-based front desk system for UiTM Perak"</span>,
-        <span class="string">"U-ReLAx Hub &amp; AIMI-Humanoid – AI empathy and humanoid benchmarking"</span>,
-        <span class="string">"Smart City &amp; Digital Twin Applications for Putrajaya 2050"</span>
-    ]
-    GRANTS = [
-        <span class="string">"SASMEC@IIUM SRG – AI-informed Psychoeducation for Parents of Children with ADHD"</span>,
-        <span class="string">"UiTM Internal – AI-Receptionist for Administrative Services"</span>,
-        <span class="string">"UiTM TNCPI – U-ReLAx Hub &amp; AIMI-Humanoid benchmarking and knowledge transfer"</span>,
-        <span class="string">"FRGS – Malay DASS Classification in Social Media"</span>
-    ]
+        <div class="project-card">
+          <div class="project-title">PAPA – Inclusive Academic Planning Assistant</div>
+          <div class="project-meta">RAG · Accessibility &amp; inclusion</div>
+          <div class="project-desc">
+            RAG-based assistant to guide students and staff in academic planning,
+            designed with accessibility in mind to support diverse learner needs.
+          </div>
+          <div class="project-tags">
+            <span>RAG</span><span>Higher Education</span>
+          </div>
+        </div>
 
-<span class="keyword">class</span> Awards:
-    GOLD_MEDALS = [
-        <span class="string">"MAYA V2 – Gold @ INDES 2025"</span>,
-        <span class="string">"MAYA V2 – Gold @ IIDEX 2025"</span>,
-        <span class="string">"MAYA V1 – Gold @ INoDEX USM 2023"</span>,
-        <span class="string">"ASLT – Gold @ INDES 2019"</span>,
-        <span class="string">"NBIS – Gold @ INDES 2019"</span>
-    ]
-    OTHER_AWARDS = [
-        <span class="string">"Innovathon 2025 – Finalist (Top 3), Ministry of Economy &amp; MOSTI"</span>,
-        <span class="string">"Business Pitching – 2nd Place, MAYA V2 @ INDES 2025"</span>,
-        <span class="string">"PAPA – Silver Medal, INDES 2025"</span>,
-        <span class="string">"VELOCI – Bronze Medal, INDES 2025"</span>,
-        <span class="string">"Intel Malaysia Scholarship Award (Undergraduate)"</span>,
-        <span class="string">"SLAB/SLAI Scholarship – Master &amp; PhD"</span>,
-        <span class="string">"RIICAN UiTM 2024 – Highest Innovation Ownership Award"</span>
-    ]
-    COPYRIGHTS = [
-        <span class="string">"MAYA V2 – CRLY2025W11883"</span>,
-        <span class="string">"PAPA – CRLY2025W11855"</span>,
-        <span class="string">"VELOCI – CRLY2025W11854"</span>,
-        <span class="string">"MAYA V1 – CRLY2024W00509"</span>,
-        <span class="string">"Malay DASS Social Media Dataset – CRLY2024W00511"</span>
-    ]
+        <div class="project-card">
+          <div class="project-title">VELOCI – Road Damage Monitoring</div>
+          <div class="project-meta">Computer vision · Geospatial</div>
+          <div class="project-desc">
+            Combines YOLO-based object detection, video feeds and GPS traces to
+            monitor potholes and road surface damage as part of a data-driven
+            maintenance pipeline.
+          </div>
+          <div class="project-tags">
+            <span>YOLO</span><span>Smart Infrastructure</span>
+          </div>
+        </div>
 
-<span class="keyword">class</span> Memberships:
-    MBOT = <span class="string">"Technologist (Ts.), Malaysia Board of Technologists"</span>
-    IEEE = <span class="string">"IEEE Member"</span>
-    HRDCORP = <span class="string">"HRDCorp Registered Trainer (AI/ML)"</span>
+        <div class="project-card">
+          <div class="project-title">AI-Receptionist &amp; Avatar Front Desk</div>
+          <div class="project-meta">UiTM Cawangan Perak · Internal grant</div>
+          <div class="project-desc">
+            Avatar-based AI receptionist integrating RAG and multimodal
+            interfaces to assist visitors and students at UiTM’s main
+            administrative building.
+          </div>
+          <div class="project-tags">
+            <span>Agentic AI</span><span>Service Automation</span>
+          </div>
+        </div>
 
-<span class="keyword">def</span> greet():
-    <span class="keyword">print</span>(<span class="string">">> Hello, I'm Zaaba. Let's collaborate on AI for good."</span>)
-    </pre>
+        <div class="project-card">
+          <div class="project-title">Smart City &amp; Digital Twin – Putrajaya 2050</div>
+          <div class="project-meta">Consultancy · Quantum/Smart city vision</div>
+          <div class="project-desc">
+            Advisory and conceptual work on integrating AI, digital twins and
+            data-driven planning into the Putrajaya 2050 Smart/Quantum City
+            Blueprint, focusing on infrastructure monitoring and citizen-centric services.
+          </div>
+          <div class="project-tags">
+            <span>Digital Twin</span><span>Public Sector</span><span>Urban Tech</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRANTS & AWARDS -->
+    <section id="grants">
+      <h2 class="section-title">Grants &amp; Awards <span>Selected funding &amp; recognition</span></h2>
+
+      <div class="columns-2 card" style="margin-bottom: 14px;">
+        <div>
+          <h4>Selected Grants</h4>
+          <ul>
+            <li><strong>SASMEC@IIUM SRG</strong> – AI-informed Psychoeducation Mobile App for Parents of Children with ADHD (Active).</li>
+            <li><strong>UiTM Perak Internal</strong> – AI-Receptionist with Avatar for Main Administration Building.</li>
+            <li><strong>UiTM TNCPI Special Project</strong> – U-ReLAx Hub &amp; AIMI-Humanoid Benchmarking (World Robot Conference, Beijing).</li>
+            <li><strong>FRGS</strong> – Malay DASS Detection and Classification in Social Media (Completed).</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Selected Awards &amp; IP</h4>
+          <ul>
+            <li><strong>MAYA V2</strong> – Gold @ INDES &amp; IIDEX 2025; Business Pitching 2nd place.</li>
+            <li><strong>MAYA V1</strong> – Gold @ INoDEX USM 2023.</li>
+            <li><strong>PAPA</strong> – Silver Medal, INDES 2025; <strong>VELOCI</strong> – Bronze Medal, INDES 2025.</li>
+            <li><strong>Copyrights</strong> – MAYA V1/V2, PAPA, VELOCI, Malay DASS Social Media Dataset.</li>
+            <li><strong>Intel Malaysia Scholarship</strong> (undergraduate) &amp; <strong>SLAB/SLAI</strong> (Master &amp; PhD).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEACHING & TALKS -->
+    <section id="teaching">
+      <h2 class="section-title">Teaching &amp; Engagement <span>Courses, training &amp; outreach</span></h2>
+      <div class="card">
+        <div class="two-col">
+          <div>
+            <h3>Teaching</h3>
+            <ul>
+              <li><strong>CSC649</strong> – Special Topics in Computer Science (AI &amp; multi-agent systems).</li>
+              <li><strong>CSC566</strong> – Image Processing.</li>
+              <li><strong>CSC126</strong> – Algorithms &amp; Problem Solving.</li>
+              <li>Other modules: Business Data Analytics, Data Communications, System Development, Digital Electronics.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Training &amp; Talks</h3>
+            <ul>
+              <li>HRDCorp-certified trainer delivering programmes on AI/ML and data analytics.</li>
+              <li>Speaker and facilitator at AI-focused workshops, innovation events and academic conferences.</li>
+              <li>Mentor and supervisor for student projects in mental health tech, smart city, and applied computer vision.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2 class="section-title">Contact &amp; Links <span>Let’s collaborate</span></h2>
+      <div class="card contact-grid">
+        <div>
+          <div class="contact-row">
+            <div class="contact-label">Email</div>
+            <div class="contact-value">zaaba.ahmad@uitm.edu.my</div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-label">Phone</div>
+            <div class="contact-value">+60 17-298 8287</div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-label">Affiliation</div>
+            <div class="contact-value">Faculty of Computer &amp; Mathematical Sciences, UiTM Cawangan Perak</div>
+          </div>
+        </div>
+        <div>
+          <div class="contact-label">Profiles &amp; Documents</div>
+          <div class="link-row">
+            <!-- Replace # with real URLs when ready -->
+            <a class="link-chip" href="Zaaba-Ahmad-CV.pdf" download>
+              📄 <span>Download CV (PDF)</span>
+            </a>
+            <a class="link-chip" href="#" target="_blank" rel="noopener">
+              🔬 <span>Google Scholar</span>
+            </a>
+            <a class="link-chip" href="#" target="_blank" rel="noopener">
+              🧪 <span>ORCID</span>
+            </a>
+            <a class="link-chip" href="#" target="_blank" rel="noopener">
+              💼 <span>LinkedIn</span>
+            </a>
+            <a class="link-chip" href="https://github.com/" target="_blank" rel="noopener">
+              🐙 <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span>Zaaba Ahmad</span> · Built for GitHub Pages · AI, mental health &amp; smart city research.
+    </footer>
+
   </div>
 </body>
 </html>
