@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ts. Dr. Zaaba Ahmad - Python Styled Resume</title>
+  <style>
+    body {
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%);
+      color: #e2e8f0;
+      font-family: Consolas, "Fira Code", Menlo, monospace;
+      padding: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .comment {
+      color: #94a3b8;
+    }
+    .string {
+      color: #f9a8d4;
+    }
+    .keyword {
+      color: #38bdf8;
+    }
+    .function {
+      color: #fcd34d;
+    }
+
+    img.profile {
+      float: right;
+      width: 200px;
+      border-radius: 50%;
+      margin-left: 24px;
+      border: 3px solid #38bdf8;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.8);
+      object-fit: cover;
+    }
+
+    .code-window {
+      background-color: #0f172a;
+      border-radius: 10px;
+      border: 1px solid #1e293b;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
+      padding-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .code-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: linear-gradient(to right, #020617, #0b1220);
+      border-bottom: 1px solid #1f2937;
+      font-size: 13px;
+      color: #9ca3af;
+    }
+
+    .code-dots {
+      display: flex;
+      gap: 6px;
+      margin-right: 10px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+    }
+    .dot.red { background: #f97373; }
+    .dot.yellow { background: #facc15; }
+    .dot.green { background: #22c55e; }
+
+    pre {
+      margin: 0;
+      padding: 18px 20px 22px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 20px;
+      }
+      img.profile {
+        float: none;
+        display: block;
+        margin: 0 auto 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img src="Zaaba Tuxedo.png" alt="Profile Image" class="profile" />
+
+  <div class="code-window">
+    <div class="code-header">
+      <div class="code-dots">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+      </div>
+      <span>zaaba_cv.py</span>
+    </div>
+
+    <pre><span class="comment"># Resume of Ts. Dr. Zaaba Ahmad</span>
+
+
+<span class="keyword">class</span> PersonalInfo:
+    NAME = <span class="string">"Ts. Dr. Zaaba Ahmad"</span>
+    TITLE = <span class="string">"Lecturer &amp; AI Researcher"</span>
+    EMAIL = <span class="string">"zaaba.ahmad@uitm.edu.my"</span>
+    PHONE = <span class="string">"+6017-2988287"</span>
+    LOCATION = <span class="string">"UiTM Cawangan Perak, Malaysia"</span>
+    MBOT = <span class="string">"PT19010009"</span>
+
+<span class="keyword">class</span> Resume:
+    PERSONAL_PROFILE = <span class="string">"Academic and AI practitioner specialising in NLP, computer vision, and mental health technologies, with active roles in smart city, digital twin and national AI initiatives."</span>
+
+    ACADEMIC_QUALIFICATIONS = [
+        <span class="string">"PhD in Computer Science (Artificial Intelligence) – UiTM (2025)"</span>,
+        <span class="string">"MSc in Computer Science (Artificial Intelligence) – USM (2015)"</span>,
+        <span class="string">"BSc (Hons.) in Computer Science – UTM (2011)"</span>,
+        <span class="string">"Diploma in Computer Electronics – PUO"</span>
+    ]
+
+    PROFESSIONAL_EXPERIENCE = {
+        <span class="string">"UiTM"</span>: <span class="string">"Lecturer (2016–present): Teaching AI/ML/NLP, supervising students, leading AI innovation and consultancy."</span>,
+        <span class="string">"Intel"</span>: <span class="string">"Engineer (2006–2014): CPU validation, R&amp;D, test automation."</span>
+    }
+
+    TEACHING_PROFILE = [
+        <span class="string">"CSC649 - Special Topics in Computer Science"</span>,
+        <span class="string">"CSC566 - Image Processing"</span>,
+        <span class="string">"CSC126 - Algorithms &amp; Problem Solving"</span>,
+        <span class="string">"ITS480 - Business Data Analytics"</span>,
+        <span class="string">"ITT400 - Data Communications"</span>,
+        <span class="string">"ITS332 - System Development"</span>,
+        <span class="string">"ITT270 - Digital Electronics"</span>
+    ]
+
+    INNOVATIONS = [
+        <span class="string">"MAYA V2 – Multimodal Affective Conversational AI for Mental Health Support"</span>,
+        <span class="string">"AIMI – Multimodal Emotion-Aware AI System for Mental Health Support in Education"</span>,
+        <span class="string">"PAPA – RAG-based AI Assistant for Inclusive Academic Planning"</span>,
+        <span class="string">"VELOCI – Autonomous Road Monitoring and Damage Detection with YOLO and GPS"</span>,
+        <span class="string">"ASLT – Automatic Sign Language Translation System"</span>,
+        <span class="string">"NBIS – Neural Butterfly Identification System"</span>
+    ]
+
+    RESEARCH_ENGAGEMENTS = [
+        <span class="string">"AI Think Tank &amp; Advisor – Putrajaya 2050 Development Plan (Quantum/Smart City)"</span>,
+        <span class="string">"Consultant &amp; Trainer – AI, analytics and digital innovation for public sector and industry"</span>,
+        <span class="string">"Mental Health Grants – AIMI and ADHD Psychoeducation Mobile App (SASMEC@IIUM)"</span>,
+        <span class="string">"PI/Co-PI – AI Receptionist (Ai-Receptionist) and U-ReLAx Hub &amp; AIMI-Humanoid projects"</span>,
+        <span class="string">"HRDCorp Trainer – AI/ML and data analytics"</span>
+    ]
+
+    GRANTS = [
+        <span class="string">"SASMEC@IIUM SRG – AI-informed Psychoeducation Mobile App for Parents of Children with ADHD (2025, Active)"</span>,
+        <span class="string">"UiTM Perak Internal Grant – AI-Receptionist with Avatar for Main Administration Building (2026, Approved)"</span>,
+        <span class="string">"UiTM TNCPI Special Project – U-ReLAx Hub &amp; AIMI-Humanoid Benchmarking at World Robot Conference, Beijing (2026, Approved)"</span>,
+        <span class="string">"FRGS – Malay DASS Detection and Classification in Social Media (Completed)"</span>
+    ]
+
+    MEMBERSHIPS = [
+        <span class="string">"Technologist (Ts.) – MBOT"</span>,
+        <span class="string">"IEEE Member"</span>,
+        <span class="string">"HRDCorp Registered Trainer (AI/ML)"</span>
+    ]
+
+<span class="keyword">class</span> AcademicBackground:
+    PHD = <span class="string">"PhD in Computer Science (Artificial Intelligence), UiTM"</span>
+    MSC = <span class="string">"MSc in Computer Science (Artificial Intelligence), USM"</span>
+    BSC = <span class="string">"BSc (Hons.) in Computer Science, UTM"</span>
+    DIPLOMA = <span class="string">"Diploma in Computer Electronics, PUO"</span>
+
+<span class="keyword">class</span> Skills:
+    NLP = [<span class="string">"BERT"</span>, <span class="string">"Word2Vec"</span>, <span class="string">"Transformers"</span>]
+    VISION = [<span class="string">"YOLOv8/YOLOv11"</span>, <span class="string">"CNN"</span>, <span class="string">"Attention Mechanisms"</span>]
+    PROGRAMMING = [<span class="string">"Python"</span>, <span class="string">"MATLAB"</span>, <span class="string">"TensorFlow"</span>, <span class="string">"PyTorch"</span>]
+    TOOLS = [<span class="string">"PyCharm"</span>, <span class="string">"Jupyter"</span>, <span class="string">"LaTeX"</span>, <span class="string">"Figma"</span>, <span class="string">"Canva"</span>]
+
+<span class="keyword">class</span> Experience:
+    UiTM = <span class="string">"2016 - Present, Lecturer in AI &amp; Computer Science"</span>
+    Intel = <span class="string">"2006 - 2014, Product Design Engineer (CPU Validation &amp; Automation)"</span>
+
+<span class="keyword">class</span> Research:
+    CURRENT = [
+        <span class="string">"AIMI – AI Mental Health Counsellor for Educational Institutions"</span>,
+        <span class="string">"MAYA – Multimodal Affective Conversational AI for Mental Health"</span>,
+        <span class="string">"ADHD Psychoeducation Mobile App (SASMEC@IIUM)"</span>,
+        <span class="string">"AI-Receptionist – Avatar-based front desk system for UiTM Perak"</span>,
+        <span class="string">"U-ReLAx Hub &amp; AIMI-Humanoid – AI empathy and humanoid benchmarking"</span>,
+        <span class="string">"Smart City &amp; Digital Twin Applications for Putrajaya 2050"</span>
+    ]
+    GRANTS = [
+        <span class="string">"SASMEC@IIUM SRG – AI-informed Psychoeducation for Parents of Children with ADHD"</span>,
+        <span class="string">"UiTM Internal – AI-Receptionist for Administrative Services"</span>,
+        <span class="string">"UiTM TNCPI – U-ReLAx Hub &amp; AIMI-Humanoid benchmarking and knowledge transfer"</span>,
+        <span class="string">"FRGS – Malay DASS Classification in Social Media"</span>
+    ]
+
+<span class="keyword">class</span> Awards:
+    GOLD_MEDALS = [
+        <span class="string">"MAYA V2 – Gold @ INDES 2025"</span>,
+        <span class="string">"MAYA V2 – Gold @ IIDEX 2025"</span>,
+        <span class="string">"MAYA V1 – Gold @ INoDEX USM 2023"</span>,
+        <span class="string">"ASLT – Gold @ INDES 2019"</span>,
+        <span class="string">"NBIS – Gold @ INDES 2019"</span>
+    ]
+    OTHER_AWARDS = [
+        <span class="string">"Innovathon 2025 – Finalist (Top 3), Ministry of Economy &amp; MOSTI"</span>,
+        <span class="string">"Business Pitching – 2nd Place, MAYA V2 @ INDES 2025"</span>,
+        <span class="string">"PAPA – Silver Medal, INDES 2025"</span>,
+        <span class="string">"VELOCI – Bronze Medal, INDES 2025"</span>,
+        <span class="string">"Intel Malaysia Scholarship Award (Undergraduate)"</span>,
+        <span class="string">"SLAB/SLAI Scholarship – Master &amp; PhD"</span>,
+        <span class="string">"RIICAN UiTM 2024 – Highest Innovation Ownership Award"</span>
+    ]
+    COPYRIGHTS = [
+        <span class="string">"MAYA V2 – CRLY2025W11883"</span>,
+        <span class="string">"PAPA – CRLY2025W11855"</span>,
+        <span class="string">"VELOCI – CRLY2025W11854"</span>,
+        <span class="string">"MAYA V1 – CRLY2024W00509"</span>,
+        <span class="string">"Malay DASS Social Media Dataset – CRLY2024W00511"</span>
+    ]
+
+<span class="keyword">class</span> Memberships:
+    MBOT = <span class="string">"Technologist (Ts.), Malaysia Board of Technologists"</span>
+    IEEE = <span class="string">"IEEE Member"</span>
+    HRDCORP = <span class="string">"HRDCorp Registered Trainer (AI/ML)"</span>
+
+<span class="keyword">def</span> greet():
+    <span class="keyword">print</span>(<span class="string">">> Hello, I'm Zaaba. Let's collaborate on AI for good."</span>)
+    </pre>
+  </div>
+</body>
+</html>
